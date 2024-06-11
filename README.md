@@ -1,24 +1,24 @@
- Aplicação Laravel com Docker
+# Aplicação Laravel com Docker
 
 Este repositório contém uma aplicação Laravel pronta para ser executada usando Docker. Siga os passos a seguir para configurar e rodar a aplicação no seu ambiente local.
 
- Pré-requisitos
+## Pré-requisitos
 
 Antes de iniciar, certifique-se de que os seguintes softwares estão instalados na sua máquina:
 
 - [Docker](https://www.docker.com/get-started)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
- Configurando a Aplicação
+## Configurando a Aplicação
 
- ### 1. Clonar o Repositório
+### 1. Clonar o Repositório
 
 Primeiro, clone o repositório do projeto e navegue até o diretório do projeto:
 
+```bash
 git clone https://github.com/RafaelSedor/Implementacao_Dashboard.git
-
 cd Implementacao_Dashboard
-
+```
 
 ### 2. Configurar as Variáveis de Ambiente
 
@@ -76,53 +76,7 @@ Para garantir que o Laravel possa se conectar ao banco de dados MySQL corretamen
 
 ### Permissões do Usuário Root
 
-1. **Acessar o Container MySQL**
-
-   Entre no container MySQL:
-
-   ```bash
-   docker exec -it laravel_db bash
-   ```
-
-2. **Acessar o MySQL como Root**
-
-   Dentro do shell do container, acesse o MySQL como o usuário root:
-
-   ```bash
-   mysql -u root -p
-   # Insira a senha do root quando solicitado
-   ```
-
-3. **Configurar as Permissões do Usuário Root**
-
-   No prompt do MySQL, execute os seguintes comandos para ajustar as permissões do usuário root:
-
-   ```sql
-   USE mysql;
-   UPDATE user SET host='%' WHERE user='root' AND host='localhost';
-   GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'sua_senha' WITH GRANT OPTION;
-   FLUSH PRIVILEGES;
-   ```
-
-   Estes comandos permitem que o usuário root se conecte ao MySQL de qualquer host.
-
-4. **Sair do MySQL e do Container**
-
-   Saia do MySQL e do shell do container:
-
-   ```bash
-   exit;
-   exit;
-   ```
-
-5. **Reiniciar os Containers**
-
-   Reinicie os containers para aplicar as mudanças:
-
-   ```bash
-   docker-compose down
-   docker-compose up -d
-   ```
+A configuração das permissões do usuário root do MySQL é realizada automaticamente pelo script de inicialização (`init.sh`). Não é necessário executar manualmente os comandos SQL.
 
 ### Conectar o Laravel ao Banco de Dados
 
@@ -134,7 +88,7 @@ DB_HOST=laravel_db
 DB_PORT=3306
 DB_DATABASE=laravel
 DB_USERNAME=root
-DB_PASSWORD=sua_senha
+DB_PASSWORD=root
 ```
 
 Estas variáveis instruem o Laravel a se conectar ao banco de dados MySQL rodando no container `laravel_db`.

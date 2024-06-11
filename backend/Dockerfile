@@ -20,8 +20,14 @@ RUN apt-get update && apt-get install -y \
 # Instalar o Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Definir o diretório de trabalho
+WORKDIR /var/www
+
 # Copiar os arquivos da aplicação para o contêiner
-COPY . /var/www
+COPY . .
+
+# Instalar dependências do Composer
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-scripts --no-autoloader --ignore-platform-reqs --no-interaction
 
 # Copiar o arquivo php.ini para o diretório de configuração do PHP
 COPY php.ini /usr/local/etc/php/conf.d/php.ini
@@ -29,9 +35,6 @@ COPY php.ini /usr/local/etc/php/conf.d/php.ini
 # Copiar e executar o script de inicialização
 COPY init.sh /usr/local/bin/init.sh
 RUN chmod +x /usr/local/bin/init.sh
-
-# Definir o diretório de trabalho
-WORKDIR /var/www
 
 # Ajustar permissões
 RUN chown -R www-data:www-data /var/www \

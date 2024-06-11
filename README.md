@@ -16,6 +16,7 @@ Antes de iniciar, certifique-se de que os seguintes softwares estão instalados 
 Primeiro, clone o repositório do projeto e navegue até o diretório do projeto:
 
 git clone https://github.com/RafaelSedor/Implementacao_Dashboard.git
+
 cd Implementacao_Dashboard
 
 

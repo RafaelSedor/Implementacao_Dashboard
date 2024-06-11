@@ -10,15 +10,14 @@ COPY package*.json ./
 # Instalar dependências
 RUN npm install
 
+# Instalar o Vue CLI globalmente
+RUN npm install -g @vue/cli
+
 # Copiar o restante dos arquivos da aplicação
 COPY . .
-
-# Copiar e executar o script de inicialização
-COPY init.sh /usr/local/bin/init.sh
-RUN chmod +x /usr/local/bin/init.sh
 
 # Expor a porta 8080
 EXPOSE 8080
 
 # Executar o script de inicialização
-CMD ["sh", "/usr/local/bin/init.sh"]
+CMD ["npm", "run", "serve"]

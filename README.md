@@ -1,24 +1,21 @@
-### `README.md`
-
 ```markdown
-# Aplicação Laravel com Docker
+ Aplicação Laravel com Docker
 
 Este repositório contém uma aplicação Laravel pronta para ser executada usando Docker. Siga os passos a seguir para configurar e rodar a aplicação no seu ambiente local.
 
-## Pré-requisitos
+ Pré-requisitos
 
 Antes de iniciar, certifique-se de que os seguintes softwares estão instalados na sua máquina:
 
 - [Docker](https://www.docker.com/get-started)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
-## Configurando a Aplicação
+ Configurando a Aplicação
 
-### 1. Clonar o Repositório
+ 1. Clonar o Repositório
 
 Primeiro, clone o repositório do projeto e navegue até o diretório do projeto:
 
-```bash
 git clone https://github.com/RafaelSedor/Implementacao_Dashboard.git
 cd Implementacao_Dashboard
 ```
@@ -175,9 +172,9 @@ As credenciais padrão para acessar a aplicação são:
 Seguindo este guia, você configurará corretamente a aplicação Laravel com Docker e poderá começar a desenvolvê-la e testá-la no seu ambiente local.
 ```
 
-### Notas sobre o README
+ Notas sobre o README
 
-- **Clareza:** Cada passo foi explicado detalhadamente para que seja fácil de seguir, mesmo para alguém sem muita experiência.
-- **Consistência:** Foi mantida uma estrutura consistente com seções claras e bem definidas.
-- **Exemplos Práticos:** Cada comando é acompanhado por uma breve explicação do que ele faz.
-- **Considerações Finais:** Foram adicionadas recomendações de segurança e credenciais padrão para facilitar o acesso inicial.
+- Clareza: Cada passo foi explicado detalhadamente para que seja fácil de seguir, mesmo para alguém sem muita experiência.
+- Consistência: Foi mantida uma estrutura consistente com seções claras e bem definidas.
+- Exemplos Práticos: Cada comando é acompanhado por uma breve explicação do que ele faz.
+- Considerações Finais: Foram adicionadas recomendações de segurança e credenciais padrão para facilitar o acesso inicial.
